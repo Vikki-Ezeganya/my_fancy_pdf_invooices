@@ -1,0 +1,12 @@
+GET http://localhost:80/invoices
+Accept: application/json
+
+###
+POST http://localhost:80/api/item
+Content-Type: application/json
+
+
+###
+POST http://localhost:8081/invoices?user_id=jimmieHendrix&amount=100
+Accept: application/json
+###
