@@ -3,6 +3,7 @@ package com.vikki.service;
 import com.vikki.model.Invoice;
 import com.vikki.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -16,10 +17,12 @@ public class InvoiceService {
        private  List<Invoice>  invoices = new CopyOnWriteArrayList<>();
 
        private final UserService userService;
+       private String cdnUrl;
 
        @Autowired
-        public InvoiceService(UserService userService) {
+        public InvoiceService(UserService userService, @Value("${cdn.url}") String cdnUrl) {
             this.userService = userService;
+            this.cdnUrl = cdnUrl;
         }
 
         @PostConstruct
@@ -41,8 +44,8 @@ public class InvoiceService {
             }
 
 
-            String pdfUrl = "http://www.africau.edu/images/default/sample.pdf";
-            Invoice invoice = new Invoice(userId, amount, pdfUrl );
+//            String pdfUrl = "http://www.africau.edu/images/default/sample.pdf";
+            Invoice invoice = new Invoice(userId, amount, cdnUrl + "/images/default/sample.pdf" );
             invoices.add(invoice);
             return invoice;
         }

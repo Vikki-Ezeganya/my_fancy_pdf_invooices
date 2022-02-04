@@ -12,13 +12,11 @@ public class App {
     public static void main(String[] args) throws LifecycleException {
 
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(8081);
+        tomcat.setPort(8085);
         tomcat.getConnector();
 
         Context ctx = tomcat.addContext("", null);
 
-//        InvoiceService invoiceService = Application.invoiceService;
-//        ObjectMapper objectMapper = Application.objectMapper;
         Wrapper servlet = Tomcat.addServlet(ctx, "myFirstServlet", new MyFancyPdfInvoicesServlet());
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/*");
