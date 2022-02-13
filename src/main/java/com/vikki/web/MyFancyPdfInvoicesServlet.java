@@ -18,13 +18,6 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
     private ObjectMapper objectMapper;
 
 
-//    public MyFancyPdfInvoicesServlet (InvoiceService invoiceService, ObjectMapper objectMapper, UserService userService ) {
-//        this.invoiceService = invoiceService;
-//        this.objectMapper = objectMapper;
-//        this.userService = userService;
-//    }
-
-
     @Override
     public void init() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyFancyPdfInvoicesApplicationConfiguration.class);
@@ -35,7 +28,6 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         this.invoiceService = ctx.getBean(InvoiceService.class);
         this.objectMapper = ctx.getBean(ObjectMapper.class);
         this.userService = ctx.getBean(UserService.class);
-
 
     }
 
@@ -60,6 +52,7 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         }
     }
 
+    @Override
     protected  void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 
