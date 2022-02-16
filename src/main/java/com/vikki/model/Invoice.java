@@ -25,6 +25,9 @@ public class Invoice {
         this.amount = amount;
     }
 
+
+
+
     public String getId() {
         return id;
     }

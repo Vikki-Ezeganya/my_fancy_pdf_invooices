@@ -1,7 +1,6 @@
 package com.vikki;
 
 import com.vikki.context.MyFancyPdfInvoicesApplicationConfiguration;
-import com.vikki.web.MyFancyPdfInvoicesServlet;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
