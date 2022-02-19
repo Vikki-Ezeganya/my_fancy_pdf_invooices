@@ -1,5 +1,6 @@
 package com.vikki.web;
 
+import com.vikki.dto.InvoiceDto;
 import com.vikki.model.Invoice;
 import com.vikki.service.InvoiceService;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,9 @@ public class MyFancyPdfInvoicesController {
 
     }
 
-    @PostMapping("/invoices/{userId}/{amount}")
-    public Invoice createInvoice(@PathVariable String userId, @PathVariable Integer amount ) {
-        return invoiceService.create(userId, amount);
+    @PostMapping("/invoices")
+    public Invoice createInvoice(@RequestBody InvoiceDto invoiceDto) {
+        return invoiceService.create(invoiceDto.getUserId(), invoiceDto.getAmount());
     }
 
 }
