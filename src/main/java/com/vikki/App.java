@@ -1,6 +1,6 @@
 package com.vikki;
 
-import com.vikki.context.MyFancyPdfInvoicesApplicationConfiguration;
+import com.vikki.context.ApplicationConfiguration;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
@@ -34,7 +34,7 @@ public class App {
 
     public  static  WebApplicationContext createApplicationContext(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(MyFancyPdfInvoicesApplicationConfiguration.class);
+        ctx.register(ApplicationConfiguration.class);
         ctx.setServletContext(servletContext);
         ctx.refresh();
         ctx.registerShutdownHook();

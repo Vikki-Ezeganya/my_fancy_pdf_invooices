@@ -44,7 +44,6 @@ public class InvoiceService {
             }
 
 
-//            String pdfUrl = "http://www.africau.edu/images/default/sample.pdf";
             Invoice invoice = new Invoice(userId, amount, cdnUrl + "/images/default/sample.pdf" );
             invoices.add(invoice);
             return invoice;
